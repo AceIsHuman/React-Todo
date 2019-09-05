@@ -33,11 +33,20 @@ class App extends React.Component {
     })
   }
 
+  addTodo = (e, task) => {
+    e.preventDefault();
+    const todo = { task: task, id: Date.now(), completed: false };
+    this.setState({
+      todoList: [...this.state.todoList, todo],
+      taskInput: ''
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm taskInput={this.state.taskInput} handleChange={this.handleChange} />
+        <TodoForm taskInput={this.state.taskInput} handleChange={this.handleChange} addTodo={this.addTodo} />
         <TodoList todoList={this.state.todoList} />
       </div>
     );
