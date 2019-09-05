@@ -26,11 +26,18 @@ class App extends React.Component {
     }
   }
 
+  handleChange = e => {
+    this.setState({
+      ...this.state,
+      taskInput: e.target.value
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm taskInput={this.state.taskInput} />
+        <TodoForm taskInput={this.state.taskInput} handleChange={this.handleChange} />
         <TodoList todoList={this.state.todoList} />
       </div>
     );
