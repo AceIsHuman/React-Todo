@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Card } from 'semantic-ui-react';
 import './Todo.css'
 
 class Todo extends React.Component {
@@ -9,9 +9,12 @@ class Todo extends React.Component {
 
   render() {
     return(
-      <div onClick={() => this.props.toggleComplete(this.props.todo.id)}>
-        <span className={`todo${this.props.todo.completed ? ' completed' : ''}`}>{this.props.todo.task}</span>
-      </div>
+      <Card 
+        onClick={() => this.props.toggleComplete(this.props.todo.id)} 
+        className={`todo${this.props.todo.completed ? ' completed' : ''}`} 
+        header={this.props.todo.task}
+        fluid
+      />
     )
   }
 }

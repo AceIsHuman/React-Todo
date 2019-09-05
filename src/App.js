@@ -1,4 +1,5 @@
 import React from 'react';
+import { Grid } from 'semantic-ui-react';
 
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
@@ -35,6 +36,7 @@ class App extends React.Component {
 
   addTodo = (e, task) => {
     e.preventDefault();
+    if (task === '') return;
     const todo = { task: task, id: Date.now(), completed: false };
     this.setState({
       todoList: [...this.state.todoList, todo],
@@ -62,11 +64,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm taskInput={this.state.taskInput} handleChange={this.handleChange} addTodo={this.addTodo} clearCompleted={this.clearCompleted} />
-        <TodoList todoList={this.state.todoList} toggleComplete={this.toggleComplete} />
-      </div>
+      <Grid centered>
+        <Grid.Column textAlign="center" style={{width: '50%'}}>
+          <h2>Welcome to your Todo App!</h2>
+          <TodoForm taskInput={this.state.taskInput} handleChange={this.handleChange} addTodo={this.addTodo} clearCompleted={this.clearCompleted} />
+          <TodoList todoList={this.state.todoList} toggleComplete={this.toggleComplete} />
+        </Grid.Column>
+      </Grid>
     );
   }
 }

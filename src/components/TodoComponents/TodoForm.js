@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Input } from 'semantic-ui-react';
 
 class TodoForm extends React.Component {
   constructor() {
@@ -11,10 +12,10 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
-        <input type="text" name="taskInput" placeholder="Add Task" value={this.props.taskInput} onChange={this.props.handleChange} />
-        <button type="submit">Submit</button>
-        <button type="button" onClick={this.props.clearCompleted}>Clear Completed</button>
+      <form onSubmit={this.onSubmit} className="add-task-container">
+        <Input type="text" name="taskInput" placeholder="Add New Task" value={this.props.taskInput} onChange={this.props.handleChange} />
+        <Button type="submit">Submit</Button>
+        <Button type="button" onClick={this.props.clearCompleted} className="clear-btn">Clear Completed</Button>
       </form>
     )
 
