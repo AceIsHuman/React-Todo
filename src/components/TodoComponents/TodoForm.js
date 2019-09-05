@@ -3,15 +3,14 @@ import React from 'react';
 class TodoForm extends React.Component {
   constructor() {
     super();
-    this.state = {
-      task: '',
-      id: ''
-    }
   }
 
   render() {
     return (
-      <h3>TodoForm.js</h3>
+      <form>
+        <input type="text" name="taskInput" placeholder="Add Task" value={this.props.taskInput} onChange={this.props.handleChange} />
+        <button type="submit">Submit</button>
+      </form>
     )
 
   }
