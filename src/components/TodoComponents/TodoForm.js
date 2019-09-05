@@ -5,9 +5,13 @@ class TodoForm extends React.Component {
     super();
   }
 
+  onSubmit = e => {
+    this.props.addTodo(e, this.props.taskInput);
+  }
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.onSubmit}>
         <input type="text" name="taskInput" placeholder="Add Task" value={this.props.taskInput} onChange={this.props.handleChange} />
         <button type="submit">Submit</button>
       </form>
