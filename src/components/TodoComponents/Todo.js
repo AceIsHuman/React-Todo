@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Todo.css'
+
 class Todo extends React.Component {
   constructor() {
     super()
@@ -7,8 +9,8 @@ class Todo extends React.Component {
 
   render() {
     return(
-      <div>
-        <span>{this.props.todo.task}</span>
+      <div onClick={() => this.props.toggleComplete(this.props.todo.id)}>
+        <span className={`todo${this.props.todo.completed ? ' completed' : ''}`}>{this.props.todo.task}</span>
       </div>
     )
   }
