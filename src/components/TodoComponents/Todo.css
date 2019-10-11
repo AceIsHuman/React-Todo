@@ -1,0 +1,18 @@
+.todo {
+  cursor: pointer;
+}
+
+.ui.card.completed, .ui.card.completed:hover {
+  text-decoration: line-through;
+  background: rgb(240, 240, 240)
+}
+
+.add-task-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem;
+}
+
+.ui.button.clear-btn {
+  background: #e25050
+}
